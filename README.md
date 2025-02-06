@@ -21,3 +21,22 @@ docker rm nginx -f
 
 6.
 
+```bash
+podman build -f Dockerfile -t nginx-joke
+```
+l'index.html est directement definit dans l'image donc pas besoin de post configuration
+
+7.
+
+
+8.
+
+
+```bash
+docker-compose up -d
+```
+Passer sous docker compose permet, à partir d'un fichier, definir l'ensemble des conteneurs avec leurs dependances, storage, env vars et intéractions.
+On configure la base Mysql par des variable d'environnement.
+
+
+

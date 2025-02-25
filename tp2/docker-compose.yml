@@ -1,0 +1,29 @@
+ervices:
+  app:
+    image: ma_super_app
+    container_name: ma_super_app
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=myuser
+      - DB_PASSWORD=mypassword
+      - DB_NAME=mydb
+    ports:
+      - "3000:3000"
+
+  db:
+    image: postgres:15-alpine
+    container_name: ma_super_app_db
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydatabase
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  db_data:
